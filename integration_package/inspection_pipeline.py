@@ -24,7 +24,11 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import Image as PdfImage
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
-os.environ.setdefault("YOLO_CONFIG_DIR", str(Path("output/ultralytics_config").resolve()))
+PACKAGE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = PACKAGE_DIR.parent
+OUTPUT_ROOT = PROJECT_ROOT / "outputs"
+
+os.environ.setdefault("YOLO_CONFIG_DIR", str((OUTPUT_ROOT / "ultralytics_config").resolve()))
 
 try:
     from ultralytics import YOLO
@@ -49,13 +53,14 @@ DAMAGE_LOCATIONS = {
 SEVERITY_LEVELS = {"low", "medium", "high"}
 
 MODEL_SEARCH_PATHS = [
-    "output/yolo_fixed/weights/best.pt",
-    "best_damage_model.pt",
-    "output/models_fixed/best.pt",
-    "output/models/weights/best.pt",
-    "output/models/best.pt",
-    "runs/detect/train/weights/best.pt",
-    "runs/detect/train2/weights/best.pt",
+    PACKAGE_DIR / "best_damage_model.pt",
+    PROJECT_ROOT / "models" / "best_damage_model.pt",
+    PROJECT_ROOT / "outputs" / "model_outputs" / "yolo_fixed" / "weights" / "best.pt",
+    PROJECT_ROOT / "outputs" / "model_outputs" / "models_fixed" / "best.pt",
+    PROJECT_ROOT / "outputs" / "model_outputs" / "models" / "weights" / "best.pt",
+    PROJECT_ROOT / "outputs" / "model_outputs" / "models" / "best.pt",
+    PROJECT_ROOT / "outputs" / "model_outputs" / "runs" / "detect" / "train" / "weights" / "best.pt",
+    PROJECT_ROOT / "outputs" / "model_outputs" / "runs" / "detect" / "train2" / "weights" / "best.pt",
 ]
 
 
@@ -82,11 +87,11 @@ def find_model_path(model_path: Optional[str] = None) -> Path:
         if candidate.exists():
             return candidate
 
-    best_matches = sorted(Path(".").glob("**/best.pt"))
+    best_matches = sorted(PROJECT_ROOT.glob("**/best.pt"))
     if best_matches:
         return best_matches[0]
 
-    raise FileNotFoundError("No trained YOLO model found. Expected output/yolo_fixed/weights/best.pt.")
+    raise FileNotFoundError("No trained YOLO model found. Expected models/best_damage_model.pt.")
 
 
 def load_model(model_path: Optional[str] = None) -> YOLO:
@@ -355,7 +360,7 @@ def write_pdf_report(response: Dict[str, Any], annotated_image_path: Path, outpu
 def inspect_image(
     image_path: str,
     model_path: Optional[str] = None,
-    output_dir: str = "output/inspection",
+    output_dir: str = str(OUTPUT_ROOT / "inspection_reports"),
     conf: float = 0.25,
     iou: float = 0.5,
     model: Optional[YOLO] = None,
@@ -398,7 +403,7 @@ def inspect_uploaded_bytes(
     image_bytes: bytes,
     filename: str,
     model_path: Optional[str] = None,
-    output_dir: str = "output/inspection",
+    output_dir: str = str(OUTPUT_ROOT / "inspection_reports"),
     conf: float = 0.25,
     iou: float = 0.5,
     model: Optional[YOLO] = None,
@@ -414,7 +419,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run vehicle visual inspection on one image.")
     parser.add_argument("image", help="Path to vehicle image")
     parser.add_argument("--model", default=None, help="YOLO model path")
-    parser.add_argument("--output-dir", default="output/inspection", help="Artifact output directory")
+    parser.add_argument("--output-dir", default=str(OUTPUT_ROOT / "inspection_reports"), help="Artifact output directory")
     parser.add_argument("--conf", type=float, default=0.25, help="YOLO confidence threshold")
     parser.add_argument("--iou", type=float, default=0.5, help="YOLO IoU threshold")
     args = parser.parse_args()

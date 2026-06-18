@@ -11,7 +11,10 @@ from typing import Optional
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.responses import FileResponse
 
-from inspection_pipeline import inspect_uploaded_bytes
+try:
+    from .inspection_pipeline import inspect_uploaded_bytes
+except ImportError:
+    from inspection_pipeline import inspect_uploaded_bytes
 
 
 app = FastAPI(title="Vehicle Visual Inspection API", version="1.0.0")
@@ -25,7 +28,7 @@ def health() -> dict:
 @app.post("/inspect")
 async def inspect(
     file: UploadFile = File(...),
-    model_path: Optional[str] = Form(default="output/yolo_fixed/weights/best.pt"),
+    model_path: Optional[str] = Form(default=None),
     conf: float = Form(default=0.25),
     iou: float = Form(default=0.5),
 ) -> dict:
@@ -34,7 +37,7 @@ async def inspect(
         image_bytes,
         file.filename or "uploaded.jpg",
         model_path=model_path,
-        output_dir="output/inspection_api",
+        output_dir="../outputs/inspection_reports",
         conf=conf,
         iou=iou,
     )
@@ -49,5 +52,5 @@ def get_artifact(artifact_name: str) -> FileResponse:
     }
     if artifact_name not in allowed:
         raise FileNotFoundError("Unsupported artifact")
-    path = Path("output/inspection_api") / artifact_name
+    path = Path("../outputs/inspection_reports") / artifact_name
     return FileResponse(path)

@@ -21,6 +21,9 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from PIL import Image, ImageDraw, ImageFont
 
+PACKAGE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = PACKAGE_DIR.parent
+
 try:
     from ultralytics import YOLO
 except ImportError:
@@ -82,28 +85,26 @@ MPL_COLORS = {
 def find_model_auto():
     """Automatically locate a YOLOv8 .pt model file."""
     search_paths = [
-        'output/models/best.pt',
-        'output/models/last.pt',
-        'output/models/weights/best.pt',
-        'output/models/weights/last.pt',
-        'runs/detect/train/weights/best.pt',
-        'runs/detect/train/weights/last.pt',
-        'runs/detect/train2/weights/best.pt',
-        'runs/detect/train2/weights/last.pt',
-        'best.pt',
-        'last.pt',
-        'yolov8s.pt',
-        'yolov8n.pt',
+        PACKAGE_DIR / 'best_damage_model.pt',
+        PROJECT_ROOT / 'models' / 'best_damage_model.pt',
+        PROJECT_ROOT / 'outputs' / 'model_outputs' / 'models' / 'best.pt',
+        PROJECT_ROOT / 'outputs' / 'model_outputs' / 'models' / 'last.pt',
+        PROJECT_ROOT / 'outputs' / 'model_outputs' / 'models' / 'weights' / 'best.pt',
+        PROJECT_ROOT / 'outputs' / 'model_outputs' / 'models' / 'weights' / 'last.pt',
+        PROJECT_ROOT / 'outputs' / 'model_outputs' / 'runs' / 'detect' / 'train' / 'weights' / 'best.pt',
+        PROJECT_ROOT / 'outputs' / 'model_outputs' / 'runs' / 'detect' / 'train' / 'weights' / 'last.pt',
+        PROJECT_ROOT / 'models' / 'yolov8s.pt',
+        PROJECT_ROOT / 'models' / 'yolov8n.pt',
     ]
     for p in search_paths:
-        if os.path.exists(p):
+        if Path(p).exists():
             print(f"  [AUTO-LOCATE] Found model at: {p}")
-            return p
+            return str(p)
     
     # Recursive search as fallback
     print("  [AUTO-LOCATE] Searching recursively for *.pt files...")
     import glob
-    pt_files = glob.glob('**/*.pt', recursive=True)
+    pt_files = glob.glob(str(PROJECT_ROOT / '**' / '*.pt'), recursive=True)
     # Prefer best.pt
     best_files = [f for f in pt_files if 'best' in f.lower()]
     if best_files:
@@ -375,8 +376,8 @@ def generate_damage_report(instances, image_path):
     return report
 
 
-def run_inference_on_test_set(model, num_images=20, output_dir='output/predictions',
-                              conf_threshold=0.25, data_yaml='dataset_final/data.yaml'):
+def run_inference_on_test_set(model, num_images=20, output_dir='outputs/predictions',
+                              conf_threshold=0.25, data_yaml='datasets/dataset_final/data.yaml'):
     """Run inference on random test set images."""
     print("\n" + "="*60)
     print("INFERENCE TESTING ON TEST SET")
@@ -530,13 +531,13 @@ def main():
                        help='Path to trained model (auto-locates if not specified)')
     parser.add_argument('--source', type=str, default=None,
                        help='Path to single image or directory')
-    parser.add_argument('--output', type=str, default='output/predictions',
+    parser.add_argument('--output', type=str, default='outputs/predictions',
                        help='Output directory for predictions')
     parser.add_argument('--conf', type=float, default=0.25,
                        help='Confidence threshold')
     parser.add_argument('--num-test', type=int, default=20,
                        help='Number of test images to process')
-    parser.add_argument('--data-yaml', type=str, default='dataset_final/data.yaml',
+    parser.add_argument('--data-yaml', type=str, default='datasets/dataset_final/data.yaml',
                        help='Dataset config file')
     
     args = parser.parse_args()

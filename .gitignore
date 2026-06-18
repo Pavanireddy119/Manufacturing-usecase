@@ -1,0 +1,15 @@
+Dataset.zip
+
+output/
+runs/
+__pycache__/
+
+*.pt
+*.h5
+
+dataset_final/
+dataset_labeled/
+dataset_yolo_fixed/
+dataset_yolo_restructured/
+preprocessed_dataset/
+new_dataset/

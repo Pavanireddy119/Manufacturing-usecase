@@ -9,7 +9,10 @@ from pathlib import Path
 
 import streamlit as st
 
-from inspection_pipeline import inspect_uploaded_bytes
+try:
+    from .inspection_pipeline import inspect_uploaded_bytes
+except ImportError:
+    from inspection_pipeline import inspect_uploaded_bytes
 
 
 st.set_page_config(page_title="Vehicle Inspection Dashboard", layout="wide")
@@ -18,7 +21,7 @@ st.title("Vehicle Inspection Dashboard")
 
 with st.sidebar:
     st.header("Inspection Controls")
-    model_path = st.text_input("YOLO model path", value="output/yolo_fixed/weights/best.pt")
+    model_path = st.text_input("YOLO model path", value="")
     confidence = st.slider("Confidence threshold", 0.05, 0.95, 0.25, 0.05)
     iou = st.slider("IoU threshold", 0.10, 0.90, 0.50, 0.05)
 
@@ -31,7 +34,7 @@ if uploaded:
             image_bytes,
             uploaded.name,
             model_path=model_path or None,
-            output_dir="output/inspection_dashboard",
+            output_dir="../outputs/inspection_reports",
             conf=confidence,
             iou=iou,
         )
