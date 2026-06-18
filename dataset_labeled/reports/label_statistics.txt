@@ -1,0 +1,32 @@
+============================================================
+LABEL STATISTICS REPORT
+============================================================
+
+Dataset Overview:
+----------------------------------------
+  Total images processed: 2300
+  Images with annotations: 281
+  Total annotations generated: 417
+  Auto-labeled: 281
+  Flagged for review: 1910
+
+  TRAIN Split:
+      Total: 1943
+      Auto-labeled: 324
+      Flagged: 1531
+
+  VAL Split:
+      Total: 493
+      Auto-labeled: 93
+      Flagged: 379
+
+
+Bounding Box Statistics:
+----------------------------------------
+  Mean confidence: 0.6768
+  Median confidence: 0.6754
+  Min confidence: 0.2856
+  Max confidence: 0.8921
+  Conf >= 0.7: 181/417
+  Conf >= 0.8: 42/417
+  Conf >= 0.9: 0/417

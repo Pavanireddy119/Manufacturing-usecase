@@ -1,0 +1,24 @@
+path: C:\Users\TS6201_TEJASWINI\Desktop\Qaulity_Accurance\Manufacturing-usecase\dataset_final
+train: images/train
+val: images/val
+test: images/test
+nc: 18
+names:
+- dent
+- scratch
+- crack
+- broken_part
+- paint_damage
+- other_damage
+- front_bumper
+- rear_bumper
+- hood
+- windshield
+- left_door
+- right_door
+- roof
+- side_panel
+- other_location
+- low
+- medium
+- high

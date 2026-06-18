@@ -1,0 +1,77 @@
+{
+  "inspection_status": "FAILED",
+  "damage_detected": true,
+  "damage_type": "crack",
+  "damage_location": "left_door",
+  "severity": "high",
+  "confidence": 0.5182,
+  "bounding_box": [
+    31,
+    68,
+    72,
+    92
+  ],
+  "recommendation": "Repair or replace cracked component",
+  "timestamp": "2026-06-18T04:35:42.917654+00:00",
+  "image": "dataset_yolo_fixed\\images\\test\\0003.JPEG",
+  "detections": [
+    {
+      "damage_type": "crack",
+      "damage_location": "left_door",
+      "severity": "high",
+      "confidence": 0.5182,
+      "bounding_box": [
+        31,
+        68,
+        72,
+        92
+      ],
+      "recommendation": "Repair or replace cracked component"
+    },
+    {
+      "damage_type": "dent",
+      "damage_location": "left_door",
+      "severity": "medium",
+      "confidence": 0.2443,
+      "bounding_box": [
+        28,
+        62,
+        74,
+        96
+      ],
+      "recommendation": "Panel repair required"
+    },
+    {
+      "damage_type": "crack",
+      "damage_location": "front_bumper",
+      "severity": "high",
+      "confidence": 0.1985,
+      "bounding_box": [
+        48,
+        95,
+        92,
+        159
+      ],
+      "recommendation": "Repair or replace cracked component"
+    },
+    {
+      "damage_type": "dent",
+      "damage_location": "left_door",
+      "severity": "high",
+      "confidence": 0.1795,
+      "bounding_box": [
+        48,
+        94,
+        92,
+        143
+      ],
+      "recommendation": "Replace damaged panel"
+    }
+  ],
+  "artifacts": {
+    "inspection_report_json": "output\\inspection_sample\\inspection_report.json",
+    "inspection_report_pdf": "output\\inspection_sample\\inspection_report.pdf",
+    "annotated_image": "output\\inspection_sample\\annotated_image.jpg",
+    "annotated_image_named": "output\\inspection_sample\\0003_annotated.jpg"
+  }
+}

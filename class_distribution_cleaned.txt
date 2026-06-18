@@ -1,0 +1,31 @@
+================================================================================
+CLEANED DATASET CLASS DISTRIBUTION ANALYSIS
+================================================================================
+
+SPLIT SUMMARY:
+--------------------------------------------------------------------------------
+TRAIN     :  36 images,   81 annotations
+VAL       :   7 images,   21 annotations
+TEST      :   2 images,    9 annotations
+
+TOTAL     :  45 images,  111 annotations
+
+================================================================================
+CLASS DISTRIBUTION:
+--------------------------------------------------------------------------------
+Class                 Annotations   Images     Avg Size    Imbalance
+--------------------------------------------------------------------------------
+dent                           46       28        46x35         1.1x
+scratch                         0        0          N/A          INF
+crack                          49       28        72x37         1.0x
+broken_part                     7        7        46x48         7.0x
+paint_damage                    9        8        46x29         5.4x
+
+================================================================================
+CLASS IMBALANCE ANALYSIS:
+--------------------------------------------------------------------------------
+Max annotations: 49
+Min annotations: 7
+Imbalance ratio: 7.0:1
+
+WARNING - HIGH IMBALANCE: Consider using class weighting or augmentation

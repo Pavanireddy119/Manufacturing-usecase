@@ -1,0 +1,12 @@
+names:
+- dent
+- scratch
+- crack
+- broken_part
+- paint_damage
+- other_damage
+nc: 6
+path: C:\Users\TS6201_TEJASWINI\Desktop\Qaulity_Accurance\Manufacturing-usecase\dataset_yolo_fixed
+test: C:\Users\TS6201_TEJASWINI\Desktop\Qaulity_Accurance\Manufacturing-usecase\dataset_yolo_fixed/images/test
+train: C:\Users\TS6201_TEJASWINI\Desktop\Qaulity_Accurance\Manufacturing-usecase\dataset_yolo_fixed/images/train
+val: C:\Users\TS6201_TEJASWINI\Desktop\Qaulity_Accurance\Manufacturing-usecase\dataset_yolo_fixed/images/val

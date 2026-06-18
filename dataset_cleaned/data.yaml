@@ -1,0 +1,11 @@
+path: C:\Users\TS6201_TEJASWINI\Desktop\Qaulity_Accurance\Manufacturing-usecase\dataset_cleaned
+train: C:\Users\TS6201_TEJASWINI\Desktop\Qaulity_Accurance\Manufacturing-usecase\dataset_cleaned\images\train
+val: C:\Users\TS6201_TEJASWINI\Desktop\Qaulity_Accurance\Manufacturing-usecase\dataset_cleaned\images\val
+test: C:\Users\TS6201_TEJASWINI\Desktop\Qaulity_Accurance\Manufacturing-usecase\dataset_cleaned\images\test
+nc: 5
+names:
+- dent
+- scratch
+- crack
+- broken_part
+- paint_damage

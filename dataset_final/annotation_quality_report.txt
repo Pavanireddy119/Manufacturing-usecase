@@ -1,0 +1,105 @@
+======================================================================
+ANNOTATION QUALITY REPORT
+======================================================================
+
+Report Generated: 2026-06-17 10:48:50
+
+1. DATASET SUMMARY
+----------------------------------------
+   Total Images:          1150
+   Labeled Images:        761
+   Empty Labels:          389
+   Total Annotations:     2224
+   Needing Verification:  389
+
+   Annotation Coverage:   66.2%
+   ✗ FAIL (Target: >= 90%)
+
+2. DAMAGE TYPE DISTRIBUTION
+----------------------------------------
+   dent                :  1047 ( 47.1%) #######################---------------------------
+   crack               :   855 ( 38.4%) ###################-------------------------------
+   paint_damage        :   180 (  8.1%) ####----------------------------------------------
+   broken_part         :   139 (  6.2%) ###-----------------------------------------------
+   scratch             :     3 (  0.1%) --------------------------------------------------
+
+   Total: 2224
+
+3. DAMAGE LOCATION DISTRIBUTION
+----------------------------------------
+   front_bumper        :   753 ( 33.9%) ################----------------------------------
+   right_door          :   433 ( 19.5%) #########-----------------------------------------
+   left_door           :   417 ( 18.8%) #########-----------------------------------------
+   rear_bumper         :   218 (  9.8%) ####----------------------------------------------
+   side_panel          :   196 (  8.8%) ####----------------------------------------------
+   roof                :    60 (  2.7%) #-------------------------------------------------
+   windshield          :    57 (  2.6%) #-------------------------------------------------
+   other_location      :    45 (  2.0%) #-------------------------------------------------
+   hood                :    45 (  2.0%) #-------------------------------------------------
+
+   Total: 2224
+
+4. SEVERITY DISTRIBUTION
+----------------------------------------
+   low       :  1028 ( 46.2%) #######################---------------------------
+   medium    :   990 ( 44.5%) ######################----------------------------
+   high      :   206 (  9.3%) ####----------------------------------------------
+
+   Total: 2224
+
+5. VALIDATION RESULTS
+----------------------------------------
+   Total images:           951
+   With labels:            951
+   Missing labels:         0
+   Empty labels:           321
+   With annotations:       630
+   Invalid boxes removed:  0
+   Duplicates removed:     0
+
+6. OUTPUT STRUCTURE
+----------------------------------------
+   C:\Users\TS6201_TEJASWINI\Desktop\Qaulity_Accurance\Manufacturing-usecase\dataset_final/
+   ├── images/
+   │   ├── train/    (721 images)
+   │   ├── val/      (173 images)
+   │   └── test/     (57 images)
+   ├── labels/
+   │   ├── train/    (721 labels)
+   │   ├── val/      (173 labels)
+   │   └── test/     (57 labels)
+   ├── classes.txt
+   ├── data.yaml
+   ├── annotation_report.csv
+   ├── class_distribution.csv
+   ├── missing_annotations.csv
+   └── annotation_quality_report.txt
+
+7. CLASS MAPPING
+----------------------------------------
+   Damage Types (0-5):     dent, scratch, crack, broken_part, paint_damage, other_damage
+   Locations (6-14):       front_bumper, rear_bumper, hood, windshield, left_door, right_door, roof, side_panel, other_location
+   Severity (15-17):       low, medium, high
+
+8. DATASET READINESS ASSESSMENT
+----------------------------------------
+   ✗ Annotation coverage 66.2% (< 90%)
+
+   ✓ 5 damage types represented
+
+   ✓ 9 damage locations represented
+
+   ✓ All 3 severity levels represented
+
+   ✓ All images have corresponding label files
+
+   ✓ All bounding boxes within image boundaries
+
+   ✓ Sufficient annotations (2224)
+
+   Overall Dataset Readiness: 86%
+   Status: READY FOR YOLOv8 TRAINING ✓
+
+======================================================================
+END OF QUALITY REPORT
+======================================================================
