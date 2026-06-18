@@ -76,15 +76,22 @@ npm run dev      # http://localhost:5173
 3. `POST /api/predict/{image_id}` → quality verdict + damage detail
 4. `GET /api/history` → previous predictions
 
-## ML model — status & limitations
+## ML model
 
-The YOLOv8 model (`ml/integration_package/best_damage_model.pt`, 6.2 MB) loads
-and runs correctly end-to-end. **Detection accuracy is low** because it was
-trained on only ~45 images (mAP50 ≈ 0.002). It is wired in as a functional,
-swappable component; replacing the weights with a model trained on a larger
-dataset (1,000+ images) requires no code changes. See
-[`ml/EXECUTIVE_SUMMARY.txt`](ml/EXECUTIVE_SUMMARY.txt) and
-[`ml/COMPREHENSIVE_EVALUATION_REPORT.txt`](ml/COMPREHENSIVE_EVALUATION_REPORT.txt).
+The active model is a **YOLOv8 binary image classifier**
+(`ml/integration_package/quality_classifier.pt`, ~3 MB) trained on the balanced
+`Dataset/data1a` set (1,840 train / 460 val images, damage vs whole). It reaches
+**~95% validation accuracy** and correctly separates defective from
+non-defective vehicles with high confidence.
+
+- Retrain / reproduce: `cd ml && python train_quality_classifier.py`
+  (rebuilds the train/val layout from `Dataset/data1a` and trains via transfer
+  learning from `yolov8n-cls.pt`).
+- The predictor ([`backend/app/ml/yolo_predictor.py`](backend/app/ml/yolo_predictor.py))
+  auto-detects the model task. If `quality_classifier.pt` is absent it falls
+  back to the legacy YOLOv8 **detection** model (`best_damage_model.pt`), which
+  also yields damage type / location / severity but was trained on only ~45
+  images (low accuracy — see [`ml/EXECUTIVE_SUMMARY.txt`](ml/EXECUTIVE_SUMMARY.txt)).
 
 ## Configuration (backend `.env`)
 

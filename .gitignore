@@ -28,6 +28,9 @@ ml/output/ultralytics_config/
 # Ultralytics writes a settings dir next to the working dir on first run.
 Ultralytics/
 backend/Ultralytics/
+# Derived classification dataset (regenerated from Dataset/data1a by the trainer).
+ml/classify_dataset/
+ml/runs_classify/
 
 # ---- Node / frontend ----
 node_modules/

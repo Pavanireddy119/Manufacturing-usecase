@@ -1,13 +1,44 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { clearAuth } from '../api/client';
+import { api, clearAuth } from '../api/client';
 
 function Profile() {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    let active = true;
+    api
+      .me()
+      .then((data) => {
+        if (active) setUser(data);
+      })
+      .catch((err) => {
+        if (active) setError(err.message || 'Failed to load profile.');
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const handleLogout = () => {
     clearAuth();
     navigate('/');
   };
+
+  const display = (value) => {
+    if (loading) return 'Loading…';
+    return value || 'No Data Available';
+  };
+
+  const memberSince = user?.created_at
+    ? new Date(user.created_at).toLocaleDateString()
+    : null;
 
   return (
     <section>
@@ -19,19 +50,25 @@ function Profile() {
         </div>
       </div>
 
+      {error && (
+        <div className="alert alert-danger" role="alert">
+          {error}
+        </div>
+      )}
+
       <div className="bg-white border rounded-2 p-4">
         <div className="row g-3">
           <div className="col-12">
             <p className="text-secondary mb-1">Username:</p>
-            <p className="fw-semibold mb-0">No Data Available</p>
+            <p className="fw-semibold mb-0">{display(user?.username)}</p>
           </div>
           <div className="col-12">
             <p className="text-secondary mb-1">Email:</p>
-            <p className="fw-semibold mb-0">No Data Available</p>
+            <p className="fw-semibold mb-0">{display(user?.email)}</p>
           </div>
           <div className="col-12">
-            <p className="text-secondary mb-1">Role:</p>
-            <p className="fw-semibold mb-0">No Data Available</p>
+            <p className="text-secondary mb-1">Member Since:</p>
+            <p className="fw-semibold mb-0">{display(memberSince)}</p>
           </div>
         </div>
 

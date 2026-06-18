@@ -57,6 +57,8 @@ export const api = {
   login: (username, password) =>
     request('/api/auth/login', { method: 'POST', auth: false, body: { username, password } }),
 
+  me: () => request('/api/auth/me'),
+
   uploadImage: (file) => {
     const form = new FormData();
     form.append('file', file);
