@@ -1,0 +1,12 @@
+names:
+- dent
+- scratch
+- crack
+- broken_part
+- paint_damage
+- other_damage
+nc: 6
+path: .
+test: images/test
+train: images/train
+val: images/val

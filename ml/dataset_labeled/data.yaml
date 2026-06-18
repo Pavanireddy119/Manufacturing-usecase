@@ -1,0 +1,45 @@
+path: .
+train: images/train
+val: images/val
+test: images/test
+nc: 18
+names:
+- dent
+- scratch
+- crack
+- broken_part
+- paint_damage
+- other_damage
+- front_bumper
+- rear_bumper
+- hood
+- windshield
+- left_door
+- right_door
+- roof
+- side_panel
+- other_location
+- low
+- medium
+- high
+damage_types:
+  dent: 0
+  scratch: 1
+  crack: 2
+  broken_part: 3
+  paint_damage: 4
+  other_damage: 5
+damage_locations:
+  front_bumper: 6
+  rear_bumper: 7
+  hood: 8
+  windshield: 9
+  left_door: 10
+  right_door: 11
+  roof: 12
+  side_panel: 13
+  other_location: 14
+severity_levels:
+  low: 15
+  medium: 16
+  high: 17

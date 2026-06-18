@@ -1,0 +1,160 @@
+:root {
+  --app-bg: #f5f7fb;
+  --app-sidebar-width: 280px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--app-bg);
+  color: #172033;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.auth-page {
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(13, 110, 253, 0.08), rgba(25, 135, 84, 0.08)),
+    var(--app-bg);
+  display: flex;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.auth-panel {
+  background: #fff;
+  border: 1px solid rgba(23, 32, 51, 0.08);
+  border-radius: 8px;
+  margin: 0 auto;
+  max-width: 440px;
+  padding: 2rem;
+  width: 100%;
+}
+
+.app-shell {
+  background: var(--app-bg);
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-sidebar {
+  flex: 0 0 var(--app-sidebar-width);
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.app-navbar {
+  min-height: 64px;
+}
+
+.navbar-toggler-icon {
+  background-image: var(--bs-navbar-toggler-icon-bg);
+}
+
+.sidebar-link {
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+}
+
+.sidebar-link:not(.active):hover {
+  background: #eef3f8;
+}
+
+.page-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.empty-state {
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.dashboard-card,
+.quick-card {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.quick-card:hover {
+  border-color: rgba(13, 110, 253, 0.35) !important;
+  box-shadow: 0 0.5rem 1.25rem rgba(23, 32, 51, 0.08);
+  transform: translateY(-2px);
+}
+
+.chart-placeholder,
+.preview-box,
+.profile-avatar {
+  align-items: center;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #f8fafc,
+      #f8fafc 12px,
+      #eef3f8 12px,
+      #eef3f8 24px
+    );
+  border: 1px dashed #b8c3d1;
+  border-radius: 8px;
+  color: #6c757d;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.chart-placeholder {
+  min-height: 280px;
+}
+
+.chart-placeholder-sm {
+  min-height: 220px;
+}
+
+.preview-box {
+  min-height: 320px;
+  padding: 1.5rem;
+}
+
+.preview-box-sm {
+  min-height: 220px;
+}
+
+.profile-avatar {
+  height: 140px;
+  width: 140px;
+}
+
+.result-list {
+  border: 1px solid #e7ecf3;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+}
+
+@media (max-width: 575.98px) {
+  .auth-panel {
+    padding: 1.5rem;
+  }
+
+  .empty-state {
+    padding: 1.5rem;
+  }
+}

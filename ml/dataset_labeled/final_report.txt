@@ -1,0 +1,78 @@
+======================================================================
+VEHICLE DAMAGE DETECTION - FINAL DATASET REPORT
+======================================================================
+
+Report Generated: 2026-06-17 10:31:15
+
+1. DATASET SUMMARY
+----------------------------------------
+   Total Images:          2300
+   Total Labeled Images:  281 (auto-generated)
+   Total Annotations:     417
+   Images Flagged:        1910 (needs manual review)
+
+2. DAMAGE TYPE DISTRIBUTION
+----------------------------------------
+   paint_damage        :   300 ( 71.9%) ###################################---------------
+   scratch             :    58 ( 13.9%) ######--------------------------------------------
+   crack               :    46 ( 11.0%) #####---------------------------------------------
+   dent                :    13 (  3.1%) #-------------------------------------------------
+
+   Total: 417
+
+3. DAMAGE LOCATION DISTRIBUTION
+----------------------------------------
+   side_panel          :   307 ( 73.6%) ####################################--------------
+   front_bumper        :    39 (  9.4%) ####----------------------------------------------
+   left_door           :    32 (  7.7%) ###-----------------------------------------------
+   windshield          :    14 (  3.4%) #-------------------------------------------------
+   right_door          :    12 (  2.9%) #-------------------------------------------------
+   hood                :     6 (  1.4%) --------------------------------------------------
+   rear_bumper         :     4 (  1.0%) --------------------------------------------------
+   other_location      :     3 (  0.7%) --------------------------------------------------
+
+   Total: 417
+
+4. SEVERITY DISTRIBUTION
+----------------------------------------
+   medium    :   189 ( 45.3%) ######################----------------------------
+   high      :   179 ( 42.9%) #####################-----------------------------
+   low       :    49 ( 11.8%) #####---------------------------------------------
+
+   Total: 417
+
+5. OUTPUT STRUCTURE
+----------------------------------------
+   C:\Users\TS6201_TEJASWINI\Desktop\Qaulity_Accurance\Manufacturing-usecase\dataset_labeled/
+   ├── images/
+   │   ├── train/    (1712 images)
+   │   ├── val/      (429 images)
+   │   └── test/     (85 images)
+   ├── labels/
+   │   ├── train/    (920 labels)
+   │   ├── val/      (230 labels)
+   │   └── test/     (43 labels)
+   ├── classes.txt         (18 classes)
+   ├── data.yaml           (YOLOv8 config)
+   ├── annotation_report.csv
+   └── reports/
+       ├── class_distribution.txt
+       ├── label_statistics.txt
+       └── missing_annotations.txt
+
+6. CLASS MAPPING
+----------------------------------------
+   Damage Types (0-5):     dent, scratch, crack, broken_part, paint_damage, other_damage
+   Locations (6-14):       front_bumper, rear_bumper, hood, windshield, left_door, right_door, roof, side_panel, other_location
+   Severity (15-17):       low, medium, high
+
+7. NOTES
+----------------------------------------
+   • Auto-labeling confidence threshold: 0.6
+   • Images below threshold copied to: manual_review/
+   • All labels in YOLO format: class_id x_center y_center width height
+   • Each annotation generates 3 labels (type + location + severity)
+
+======================================================================
+END OF REPORT
+======================================================================

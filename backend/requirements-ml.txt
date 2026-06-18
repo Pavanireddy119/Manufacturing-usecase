@@ -1,0 +1,10 @@
+# Optional ML dependencies that enable the real YOLOv8 damage model.
+# Install on top of requirements.txt. Requires Python 3.10/3.11 (torch has no
+# 3.14 wheels yet). Without these, the backend uses the placeholder predictor.
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics>=8.0.0
+Pillow>=10.0.0
+numpy>=1.24.0
+PyYAML>=6.0
+reportlab>=4.0.0

@@ -1,0 +1,42 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---- Environment / secrets ----
+.env
+*.env
+!*.env.example
+
+# ---- Databases / runtime data ----
+*.db
+*.sqlite3
+backend/uploads/
+backend/qualityvision.db
+
+# ---- ML training artifacts (regenerable) ----
+*.cache
+ml/**/runs/
+ml/output/ultralytics_config/
+# Ultralytics writes a settings dir next to the working dir on first run.
+Ultralytics/
+backend/Ultralytics/
+
+# ---- Node / frontend ----
+node_modules/
+frontend/dist/
+frontend/build/
+*.local
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

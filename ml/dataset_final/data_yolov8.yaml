@@ -1,0 +1,24 @@
+names:
+- dent
+- scratch
+- crack
+- broken_part
+- paint_damage
+- other_damage
+- front_bumper
+- rear_bumper
+- hood
+- windshield
+- left_door
+- right_door
+- roof
+- side_panel
+- other_location
+- low
+- medium
+- high
+nc: 18
+path: .
+test: images/test
+train: images/train
+val: images/val

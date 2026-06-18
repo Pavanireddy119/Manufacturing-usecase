@@ -1,0 +1,13 @@
+# Paths are relative to the dataset root and machine-independent.
+# Point `path` at a local copy of the cleaned dataset when retraining.
+path: ../dataset_cleaned
+train: images/train
+val: images/val
+test: images/test
+nc: 5
+names:
+- dent
+- scratch
+- crack
+- broken_part
+- paint_damage

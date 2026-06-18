@@ -1,0 +1,29 @@
+============================================================
+CLASS DISTRIBUTION REPORT
+============================================================
+
+Damage Type Distribution:
+----------------------------------------
+  paint_damage        :   300 (71.9%)
+  scratch             :    58 (13.9%)
+  crack               :    46 (11.0%)
+  dent                :    13 (3.1%)
+
+Total annotations: 417
+
+Damage Location Distribution:
+----------------------------------------
+  side_panel          :   307 (73.6%)
+  front_bumper        :    39 (9.4%)
+  left_door           :    32 (7.7%)
+  windshield          :    14 (3.4%)
+  right_door          :    12 (2.9%)
+  hood                :     6 (1.4%)
+  rear_bumper         :     4 (1.0%)
+  other_location      :     3 (0.7%)
+
+Severity Distribution:
+----------------------------------------
+  medium    :   189 (45.3%)
+  high      :   179 (42.9%)
+  low       :    49 (11.8%)
