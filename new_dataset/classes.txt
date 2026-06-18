@@ -1,0 +1,6 @@
+dent
+scratch
+crack
+broken_part
+paint_damage
+other_damage

@@ -1,0 +1,20 @@
+{
+  "settings_version": "0.0.6",
+  "datasets_dir": "C:\\Users\\TS6201_TEJASWINI\\Desktop\\Qaulity_Accurance\\Manufacturing-usecase\\datasets",
+  "weights_dir": "weights",
+  "runs_dir": "runs",
+  "uuid": "b8c94ed74cc2627df41616bcd831bf58f65b5e1ef11f08b0ef847efd93bdaa87",
+  "sync": true,
+  "api_key": "",
+  "openai_api_key": "",
+  "clearml": true,
+  "comet": true,
+  "dvc": true,
+  "hub": true,
+  "mlflow": true,
+  "neptune": true,
+  "raytune": true,
+  "tensorboard": true,
+  "wandb": true,
+  "vscode_msg": true
+}

@@ -1,0 +1,55 @@
+================================================================================
+COMPREHENSIVE DATASET AUDIT REPORT
+================================================================================
+
+TOTAL ISSUES FOUND: 22
+
+ISSUES BY CATEGORY:
+--------------------------------------------------------------------------------
+
+EMPTY_LABELS: 22 found
+  - train/0108.jpeg
+  - train/0127.jpeg
+  - train/0158.jpeg
+  - train/0162.jpeg
+  - train/0180.jpeg
+  - train/0184.jpeg
+  - train/0209.jpeg
+  - train/0289.jpeg
+  - train/0320.jpeg
+  - train/0451.jpeg
+  ... and 12 more
+
+================================================================================
+CLASS DISTRIBUTION:
+--------------------------------------------------------------------------------
+dent                :     46 annotations in   28 images
+scratch             :      0 annotations in    0 images
+crack               :     49 annotations in   28 images
+broken_part         :      7 annotations in    7 images
+paint_damage        :      9 annotations in    8 images
+other_damage        :      0 annotations in    0 images
+front_bumper        :     38 annotations in   24 images
+rear_bumper         :      3 annotations in    3 images
+hood                :      2 annotations in    2 images
+windshield          :      4 annotations in    3 images
+left_door           :     21 annotations in   17 images
+right_door          :     28 annotations in   19 images
+roof                :      3 annotations in    3 images
+side_panel          :     12 annotations in    8 images
+other_location      :      0 annotations in    0 images
+low                 :     53 annotations in   30 images
+medium              :     53 annotations in   33 images
+high                :      5 annotations in    3 images
+
+================================================================================
+BOUNDING BOX STATISTICS:
+--------------------------------------------------------------------------------
+Total bboxes: 333
+Bbox areas - Min: 342px, Max: 28122px, Avg: 2716px
+Bbox widths - Min: 16px, Max: 275px, Avg: 57px
+Bbox heights - Min: 15px, Max: 122px, Avg: 36px
+
+================================================================================
+RECOMMENDATIONS:
+--------------------------------------------------------------------------------
